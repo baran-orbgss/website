@@ -16,7 +16,7 @@
 ## What is deliberately incomplete
 
 - `contact@orbgss.com` requires final confirmation;
-- no GitHub/Vercel/Squarespace external writes have been performed by this handoff package;
+- the site is pushed to https://github.com/bruhnioli/website (`main`); no Vercel or Squarespace writes have been performed;
 - final browser/device visual QA has not been signed off.
 
 ## Completed
