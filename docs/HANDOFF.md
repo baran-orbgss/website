@@ -16,12 +16,13 @@
 ## What is deliberately incomplete
 
 - `contact@orbgss.com` requires final confirmation;
-- the site is pushed to https://github.com/bruhnioli/website (`main`); no Vercel or Squarespace writes have been performed;
+- Git publication is complete: canonical repository https://github.com/baran-orbgss/website, branch `main`; the Vercel preview is still pending; Squarespace DNS and Google Workspace mail DNS have not been touched;
 - final browser/device visual QA has not been signed off.
 
 ## Completed
 
 - `ORBWEB-001` (2026-09-09): production imagery generated from USGS Landsat Collection 2 Level-2 data, provenance pinned, remote fallback removed, validator green.
+- `ORBWEB-002A` (2026-09-10): GitHub publication of the accepted v0.5.1 state to `baran-orbgss/website` (`main`), history preserved. Vercel not started.
 - `ORBWEB-001.1` (2026-09-09): approved navigation (right-aligned, Solutions dropdown, EN | TR), on-image location/coordinate labels replacing the metadata strips, client-side EN/TR bilingual UI. Design/product authority docs updated; these decisions are canonical.
 
 ## Next Claude session

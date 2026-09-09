@@ -5,7 +5,7 @@
 **Stage:** visual direction locked; production imagery populated; approved navigation, on-image labels and EN/TR revision applied (ORBWEB-001.1); preview deployment pending  
 **Site architecture:** static HTML + CSS + vanilla JavaScript  
 **Public domain target:** `https://orbgss.com`  
-**Source repository:** https://github.com/bruhnioli/website (branch `main`, public)  
+**Source repository:** https://github.com/baran-orbgss/website (branch `main`, public)  
 **Registrar / DNS:** Squarespace  
 **Hosting target:** Vercel  
 **Company:** VirgaSoft  
@@ -63,9 +63,9 @@ OrbGSS is positioned as a broader geospatial intelligence / GIS platform, not as
 - Marine and About point to safe anchors (`#solutions`, footer `#about`) until real destinations exist. See `docs/PRODUCT_AND_CONTENT_AUTHORITY.md`.
 - No change to imagery, provenance, pipeline or claims. Validator PASS, 0 warnings.
 
-## Source control (2026-09-09)
+## Source control (ORBWEB-002A, 2026-09-10)
 
-The site is under Git in this folder and pushed to https://github.com/bruhnioli/website on `main` (user-authorized). ORBWEB-002 steps 2–4 (Git) are therefore done; the Vercel preview (steps 5–7) has not been created.
+Git publication is complete. The canonical repository is https://github.com/baran-orbgss/website, branch `main` (public). The repository was transferred from `bruhnioli/website` with its history preserved; the accepted v0.5.1 website code and all four production imagery assets are published there. ORBWEB-002 steps 2–4 (Git) are done. The Vercel preview (steps 5–7) is still pending. Squarespace DNS and Google Workspace mail DNS records have not been touched.
 
 ## Production blockers
 
