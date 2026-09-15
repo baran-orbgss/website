@@ -25,6 +25,8 @@
 - `ORBWEB-002A` (2026-09-10): GitHub publication of the accepted v0.5.1 state to `baran-orbgss/website` (`main`), history preserved. Vercel not started.
 - `ORBWEB-001.1` (2026-09-09): approved navigation (right-aligned, Solutions dropdown, EN | TR), on-image location/coordinate labels replacing the metadata strips, client-side EN/TR bilingual UI. Design/product authority docs updated; these decisions are canonical.
 
+- `WEB-001` (2026-09-15, branch `feat/web-001-vnext-foundation`, REVIEW_READY): vNext authority published; homepage rebuilt as the evidence-to-intelligence gallery (Hero → 01–06 story sections → Pilot ledger → Company/Trust → Contact); navigation Platform / Solutions / Pilot / Company / Contact / EN | TR; static poster hero; EN/TR parity; validator extended. Temporary story visuals are marked `temporary-gallery`; WEB-002 owns the real product-proof imagery.
+
 ## Next Claude session
 
-Execute `tasks/ORBWEB-002_PREVIEW_DEPLOYMENT.md` exactly. External writes (GitHub, Vercel) need explicit user authorization; DNS stays untouched.
+Read `docs/WEB_VNEXT_AUTHORITY.md`. Review/merge WEB-001 first; then WEB-002 on a new feature branch. External writes (Vercel) need explicit user authorization; DNS stays untouched until WEB-006.

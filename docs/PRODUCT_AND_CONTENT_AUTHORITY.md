@@ -1,5 +1,7 @@
 # OrbGSS website — product and content authority
 
+> **WEB-001 (2026-09-15):** `docs/WEB_VNEXT_AUTHORITY.md` is the vNext authority and wins where the two disagree. Sections below marked *(WEB-001)* reflect the current homepage.
+
 ## Brand hierarchy
 
 **OrbGSS** is the product/brand presented to website visitors.  
@@ -24,43 +26,54 @@ Current public-facing solution taxonomy:
 
 The site should make the platform feel extensible without implying that every future vertical is already production-ready.
 
-### Navigation labels (ORBWEB-001.1)
+### Navigation labels *(WEB-001)*
 
-The Solutions dropdown uses short navigation labels that are distinct from the section titles above:
-
-| Nav label (EN / TR) | Destination today |
+| Nav label (EN / TR) | Destination |
 | --- | --- |
-| Geothermal / Jeotermal | `#geothermal` section |
-| Mining / Madencilik | `#mineral` section (beam title stays "Mineral Exploration") |
-| Marine / Deniz | `#solutions` (start of the solutions sequence) — placeholder until a marine section or page exists; do not present Marine as a completed capability |
+| Platform / Platform | `#platform` (01 Observe, start of the story) |
+| Solutions / Çözümler → Geothermal Exploration / Jeotermal Arama | `#geothermal` (06, first active application) |
+| Solutions → Mineral Exploration / Maden Arama | `#mineral` (pilot ledger row, expansion direction) |
+| Solutions → Environmental & Land Intelligence / Çevre ve Arazi Zekâsı | `#environment` (pilot ledger row, expansion direction) |
+| Pilot / Pilot | `#pilot` (application maturity ledger) |
+| Company / Şirket | `#company` (company + how we work) |
+| Contact / İletişim | `#contact` (contact beam) |
 
-`About / Hakkımızda` currently anchors to the footer (`#about`), which holds the brand block and "Built by VirgaSoft"; a dedicated About section is a future content decision.
+The former Marine placeholder and the footer `#about` anchor were removed; no navigation item points to a placeholder.
 
 ### Turkish copy
 
 Turkish translations of the hero, beams, labels and footer are canonical in `script.js` (`I18N.tr`). Treat changes to them as content decisions, like the English copy.
 
-## Current hero copy
+## Current hero copy *(WEB-001)*
+
+Eyebrow:
+
+> Earth data. Evidence. Priority.
 
 Headline:
 
-> From Earth Observation to Actionable Geospatial Intelligence
+> Know where to look next.
 
 Supporting copy:
 
-> OrbGSS combines satellite imagery, terrain, geology and domain-specific analysis to identify, prioritize and evaluate areas of interest.
+> OrbGSS turns Earth observation and geoscience data into evidence-backed spatial priorities that help teams decide where to investigate next.
 
-Primary CTA:
-
-> Partner With Us
+Primary CTA: `Explore the Platform` (→ `#platform`). Secondary: `Partner With Us` (mailto).
 
 This copy may be refined later, but substantial messaging changes should be treated as content decisions rather than incidental code cleanup.
 
-## Current separator copy
+## Current beam copy *(WEB-001)*
 
-- `01 — Geothermal Exploration` / `Clean energy beneath the surface`
-- `02 — Mineral Exploration` / `Critical resources for a changing world`
-- `03 — Environmental & Land Intelligence` / `A more resilient tomorrow`
+Each story beam: index, title, statement, monospace descriptor. Canonical EN/TR text is in `script.js` (`story.*`, `pilot.*`, `app.*`, `company.*`, `trust.*`, `contact.*`).
+
+- `01 Observe` — the platform starts from an area of interest; inputs are brought into one spatial frame
+- `02 Terrain` — terrain is physical context
+- `03 Evidence` — domain-relevant signals are mapped as spatial evidence
+- `04 Structure` — geological/structural context frames interpretation
+- `05 Priority` — evidence is integrated into a spatial priority view
+- `06 Geothermal` — first active application, applied in a pilot setting
+
+Pilot ledger statuses: Geothermal `Active · First application`; Mineral and Environmental & Land `Expansion direction`. Trust list: traceable provenance, explicit data gaps, evidence-based outputs, decision support (field investigation remains necessary).
 
 ## Claims to avoid unless later substantiated
 

@@ -10,11 +10,12 @@ Claude Code should automatically inspect `CLAUDE.md`. The canonical manual boots
 
 1. `CLAUDE.md`
 2. `STATUS.md`
-3. `docs/DESIGN_AUTHORITY.md`
-4. `docs/PRODUCT_AND_CONTENT_AUTHORITY.md`
-5. `IMAGERY_RIGHTS.md`
-6. `assets/imagery/sources.json`
-7. task named by `STATUS.md`
+3. `docs/WEB_VNEXT_AUTHORITY.md`
+4. `docs/DESIGN_AUTHORITY.md`
+5. `docs/PRODUCT_AND_CONTENT_AUTHORITY.md`
+6. `IMAGERY_RIGHTS.md`
+7. `assets/imagery/sources.json`
+8. task named by `STATUS.md`
 
 For a fresh Claude session, `CLAUDE_SESSION_BOOTSTRAP.txt` contains a copy/paste bootstrap prompt.
 
@@ -24,7 +25,7 @@ For a fresh Claude session, `CLAUDE_SESSION_BOOTSTRAP.txt` contains a copy/paste
 python scripts/validate_site.py
 ```
 
-The validator passes with zero warnings once the four production images exist; errors are never acceptable.
+On Windows machines where `python` is only the Store alias, use `py -3.14 scripts/validate_site.py`. The validator passes with zero warnings once the four production images exist; errors are never acceptable.
 
 ## Local preview
 
@@ -48,9 +49,7 @@ Use an isolated environment: recent rasterio wheels require numpy 2.
 
 ## Current next task
 
-`tasks/ORBWEB-002_PREVIEW_DEPLOYMENT.md`
-
-Do not redesign while executing that task.
+WEB-001 (`tasks/WEB-001_VNEXT_FOUNDATION.md`) is REVIEW_READY on `feat/web-001-vnext-foundation`. After review: WEB-002 (product-proof imagery). No feature work on `main`.
 
 ## Deployment target
 

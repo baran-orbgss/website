@@ -120,6 +120,11 @@ Stop and report rather than invent if: origin/main diverges in conflicting autho
 3. Do not merge to `main`. Do not begin WEB-002.
 4. Terminal state: `REVIEW_READY`.
 
-## Completion record
+## Completion record — 2026-09-15 — REVIEW_READY
 
-_To be filled at REVIEW_READY._
+- Authority publication commit: `eb75782e9fcd4c0f56abe4b607a7206f4b35fbbf` (`docs: publish WEB-001 website vNext authority`), pushed and verified on `origin/feat/web-001-vnext-foundation` before feature code.
+- Implemented: `index.html` (hero, 01–06 story sections with `data-visual-slot`, pilot ledger, company/trust, contact, footer), `styles.css` (technical beams, monospace treatment, ledger, company, contact, responsive), `script.js` (`I18N` rebuilt with full EN/TR parity, image-failure selector), `scripts/validate_site.py` (vNext anchors, visual-slot order/status), `assets/imagery/sources.json` (`web_vnext_placement`, additive), docs (`STATUS.md`, `CLAUDE.md`, `README.md`, `CHANGELOG.md`, `IMAGERY_RIGHTS.md`, `docs/DESIGN_AUTHORITY.md`, `docs/PRODUCT_AND_CONTENT_AUTHORITY.md`, `docs/HANDOFF.md`).
+- Validator: PASS, 0 warnings (`py -3.14 scripts/validate_site.py`).
+- Browser checks (local `http.server`, Claude Browser pane): no horizontal overflow at 375 / 900 / 1600 px; all fragment links resolve; no broken images; Solutions disclosure opens on click/focus and closes on Escape with focus returned; mobile menu opens/closes and Solutions expands on tap; TR switch updates `<html lang>`, title, nav, hero, beams, ledger, trust and contact strings and persists in `localStorage`; focus outlines unchanged.
+- Deferred WEB-002 visual slots: `observe`, `terrain`, `evidence`, `structure`, `priority`, `geothermal` (all `temporary-gallery`). Hero visual deferred to WEB-005 (`static-poster`).
+- Not done / out of scope: cinematic hero, product-proof imagery, Vercel preview, DNS.

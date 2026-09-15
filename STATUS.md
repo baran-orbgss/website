@@ -1,83 +1,77 @@
 # OrbGSS Website — CURRENT
 
-**Canonical version:** `v0.5.1-nav-labels-bilingual`  
-**Date:** 2026-09-09  
-**Stage:** visual direction locked; production imagery populated; approved navigation, on-image labels and EN/TR revision applied (ORBWEB-001.1); preview deployment pending  
+**Canonical version:** `v0.6.0-web-001-vnext-foundation` (branch `feat/web-001-vnext-foundation`, REVIEW_READY, not merged)  
+**Date:** 2026-09-15  
+**Stage:** WEB-001 vNext information architecture, visual foundation and homepage shell implemented; awaiting review; WEB-002 (product-proof imagery) not started  
 **Site architecture:** static HTML + CSS + vanilla JavaScript  
 **Public domain target:** `https://orbgss.com`  
-**Source repository:** https://github.com/baran-orbgss/website (branch `main`, public)  
+**Source repository:** https://github.com/baran-orbgss/website (accepted `main`: `b10cd72`; WEB-001 on `feat/web-001-vnext-foundation`)  
 **Registrar / DNS:** Squarespace  
 **Hosting target:** Vercel  
 **Company:** VirgaSoft  
-**Product:** OrbGSS — Orbital Geo-Spatial Solutions
+**Product:** OrbGSS — Orbital Geo-Spatial Solutions  
+**Tracking:** Linear MER-89 (WEB-001)
 
-## Current state
+## Authority
 
-The landing-page implementation is functional and intentionally minimal. The accepted information architecture is:
+`docs/WEB_VNEXT_AUTHORITY.md` is the repository-local summary of the product-owned *OrbGSS Website vNext Product & Execution Authority v1.2*. Where it disagrees with `docs/DESIGN_AUTHORITY.md` or `docs/PRODUCT_AND_CONTENT_AUTHORITY.md`, it wins for vNext work. The active task contract is `tasks/WEB-001_VNEXT_FOUNDATION.md`.
 
-1. navigation (right-aligned: Home → Solutions⌄ → About → Partner With Us → EN | TR)
-2. hero satellite image with hero copy; location + coordinates directly on the image, bottom-right
-3. dark separator beam with section copy
-4. clean full-width satellite image; location + coordinates directly on the image, bottom-right
-5. repeat the beam → imagery pattern for each solution
-6. compact footer (also the `#about` anchor)
+## Current state (WEB-001)
 
-Current solution sections:
+The homepage is a cinematic gallery that tells the evidence-to-intelligence story. Rhythm is unchanged: dark technical beam → large full-width visual panel. Structure:
 
-- Geothermal Exploration
-- Mineral Exploration
-- Environmental & Land Intelligence
+1. navigation (right-aligned: Platform → Solutions⌄ → Pilot → Company → Contact → EN | TR)
+2. hero: static poster (Crater Lake composite), eyebrow / headline / supporting copy / `Explore the Platform` / `Partner With Us`; location + coordinates on the image
+3. `01 Observe` beam → panel (`#platform`)
+4. `02 Terrain` beam → panel (`#terrain`)
+5. `03 Evidence` beam → panel (`#evidence`)
+6. `04 Structure` beam → panel (`#structure`)
+7. `05 Priority` beam → panel (`#priority`)
+8. `06 Geothermal` beam → panel (`#geothermal`) — first active application
+9. Pilot ledger (`#pilot`, list `#solutions`): Geothermal `Active · First application`; Mineral (`#mineral`) and Environmental & Land (`#environment`) `Expansion direction`
+10. Company + trust list (`#company`)
+11. Contact beam (`#contact`)
+12. compact footer
+
+Every visible string exists in EN and TR (`I18N` in `script.js`).
+
+## Temporary visuals (WEB-002 owns the replacement)
+
+Story panels 01–06 reuse the four provenance-safe Landsat composites as atmospheric gallery material only. Each carries the on-image label `Natural-color composite` and is marked in markup with `data-visual-slot` / `data-visual-status="temporary-gallery"`. No panel is presented as a DEM, evidence raster, structural map or priority output. Placement is recorded per scene in `assets/imagery/sources.json` (`web_vnext_placement`). The validator enforces slot order and status.
+
+The hero is a static poster (`data-hero-slot="static-poster"`); WEB-005 replaces only `.hero-visual`.
 
 ## Locked design decisions
 
 - Full-width, high-resolution Earth-observation imagery is the primary visual system.
-- Except for the hero, imagery stays clean: no cards, labels, floating UI, maps controls, pins, grids, diagrams or text overlays.
-- Text that separates imagery belongs on full-width dark horizontal beams.
-- Every satellite image shows its real location and coordinates directly on the image, bottom-right, as bare text with no background container. No metadata strip below any image. Sensor/date remain in the manifest only.
-- Desktop navigation order is fixed: Home → Solutions (dropdown: Geothermal, Mining, Marine) → About → Partner With Us → EN | TR, right-aligned. Home has a cyan underline; Partner With Us is a plain nav item.
-- The homepage is bilingual (EN default, TR) through the client-side dictionary in `script.js`; no flags, no framework.
-- No `How it works` section.
-- No icon wall.
-- No generic SaaS card grid.
-- No stock photography.
-- Avoid decorative globe/Earth imagery in the logo. The current orbital mark intentionally has no globe in the center.
-- Dark, restrained, scientific/EO aesthetic. The satellite imagery supplies most of the color.
-- Desktop should feel wide and cinematic; do not compress the imagery into centered content cards.
+- Except for the hero, imagery stays clean: no cards, floating UI, map controls, pins, grids, diagrams or overlay copy.
+- Story copy lives on the dark technical beams: index, uppercase title, one or two sentences, monospace descriptor.
+- Every satellite image shows its real location and coordinates directly on the image, bottom-right, bare monospace text; story panels add the `Natural-color composite` line. No metadata strip below any image.
+- Secondary monospace treatment is reserved for coordinates, evidence labels, metadata, status tags and technical descriptors.
+- Desktop navigation order is fixed: Platform → Solutions (Geothermal Exploration, Mineral Exploration, Environmental & Land Intelligence) → Pilot → Company → Contact → EN | TR, right-aligned. All destinations are real anchors.
+- Bilingual (EN default, TR) through the client-side dictionary; no flags, no framework.
+- No `How it works` section, icon wall, SaaS card grid, fake dashboard, HUD chrome, stock photography or globe in the logo mark.
+- Dark, restrained, scientific/EO aesthetic; desktop stays wide and cinematic.
 
 ## Product positioning
 
-OrbGSS is positioned as a broader geospatial intelligence / GIS platform, not as a geothermal-only product. Geothermal is the first pilot/use case. The site may show geothermal, mineral and environmental/land-intelligence directions, but must not present unimplemented capabilities as completed commercial functionality.
-
-## Production imagery (done in ORBWEB-001, 2026-09-09)
-
-- All four scenes are self-hosted OrbGSS natural-color composites generated from USGS Landsat Collection 2 Level-2 surface-reflectance products (public domain). Product identifiers, crop and stretch are pinned per scene in `assets/imagery/sources.json`; `scripts/build_imagery.py` reproduces them.
-- Scene metadata (location, sensor, acquisition date, coordinates) was re-verified against the NASA Earth Observatory reference pages and against the Landsat product identifiers.
-- The page no longer depends on remote NASA Earth Observatory renderings; a failed image now hides itself instead of loading a remote fallback.
-- Resolution note: the composites are native 30 m Landsat surface reflectance. 15 m pan-sharpened Level-1 data for these acquisitions is only available behind USGS EarthExplorer credentials, which were not authorized.
-
-## ORBWEB-001.1 — approved navigation, on-image labels, EN/TR (done 2026-09-09)
-
-- Removed the coordinate strips; each image now carries `LOCATION / COORDINATES` bottom-right with a subtle text-shadow only.
-- Rebuilt the navigation: right-aligned Home / Solutions dropdown (Geothermal, Mining, Marine) / About / Partner With Us / EN | TR; accessible disclosure pattern (hover, focus, click, Escape, click-outside, arrow keys); mobile Solutions expands on tap.
-- Added client-side EN/TR switching with `localStorage` persistence, `<html lang>`, title and meta updates.
-- Marine and About point to safe anchors (`#solutions`, footer `#about`) until real destinations exist. See `docs/PRODUCT_AND_CONTENT_AUTHORITY.md`.
-- No change to imagery, provenance, pipeline or claims. Validator PASS, 0 warnings.
-
-## Source control (ORBWEB-002A, 2026-09-10)
-
-Git publication is complete. The canonical repository is https://github.com/baran-orbgss/website, branch `main` (public). The repository was transferred from `bruhnioli/website` with its history preserved; the accepted v0.5.1 website code and all four production imagery assets are published there. ORBWEB-002 steps 2–4 (Git) are done. The Vercel preview (steps 5–7) is still pending. Squarespace DNS and Google Workspace mail DNS records have not been touched.
+OrbGSS is a geospatial-intelligence platform. Geothermal Exploration is the first active application (pilot). Mineral Exploration and Environmental & Land Intelligence are expansion directions and are labelled as such. No customer, partner, revenue, ROI, accuracy, AI-performance or production-deployment claims.
 
 ## Production blockers
 
 1. Confirm `contact@orbgss.com` before public launch.
-2. Create the Vercel preview from the GitHub repository and QA desktop/mobile from the hosted URL (needs explicit authorization for the Vercel write).
-3. Only after preview approval: connect `orbgss.com` / `www.orbgss.com` through Squarespace DNS.
-4. Preserve existing Google Workspace email DNS records; do not alter MX/SPF/DKIM/DMARC when connecting the website.
+2. WEB-001 review and merge (no feature work on `main`).
+3. WEB-002: product-proof visuals for the story slots, with provenance recorded before use.
+4. Vercel preview from the GitHub repository (explicit authorization for the Vercel write).
+5. WEB-006 only: connect `orbgss.com` / `www.orbgss.com` through Squarespace DNS, preserving Google Workspace MX/SPF/DKIM/DMARC.
 
 ## Next canonical task
 
-Read and execute only:
+WEB-001 is REVIEW_READY. After review: `WEB-002` (product-proof imagery for the deferred visual slots). Do not start WEB-002 on this branch.
 
-`tasks/ORBWEB-002_PREVIEW_DEPLOYMENT.md`
+## History
 
-Do not redesign the site while doing that task.
+- ORBWEB-001 (2026-09-09): production imagery from USGS Landsat Collection 2 Level-2, provenance pinned.
+- ORBWEB-001.1 (2026-09-09): on-image labels, right-aligned navigation with Solutions dropdown, EN/TR.
+- ORBWEB-002A (2026-09-10): GitHub publication to `baran-orbgss/website`.
+- WEB-001 (2026-09-15): vNext authority published; homepage shell, story sections, pilot ledger, company/trust, contact; navigation and hero renewed; validator extended.

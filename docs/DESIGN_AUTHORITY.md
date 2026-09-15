@@ -1,5 +1,7 @@
 # OrbGSS website — design authority
 
+> **WEB-001 (2026-09-15):** `docs/WEB_VNEXT_AUTHORITY.md` is the vNext authority. Where this document and that one disagree (navigation order, homepage sequence, beam contents, monospace treatment), the vNext document wins. Everything below that is not restated there still applies.
+
 ## Accepted direction
 
 The desired site is a cinematic, minimal Earth-observation landing page. Think of the page as alternating horizontal layers rather than a conventional SaaS homepage.
@@ -7,22 +9,22 @@ The desired site is a cinematic, minimal Earth-observation landing page. Think o
 ### Structural rhythm
 
 ```text
-[ NAVIGATION: OrbGSS ............ Home  Solutions⌄  About  Partner With Us | EN | TR ]
+[ NAVIGATION: OrbGSS ........ Platform  Solutions⌄  Pilot  Company  Contact | EN | TR ]
 
-[ HERO: full-width satellite imagery + minimal hero copy      location / coords ↘ ]
+[ HERO: full-width imagery (static poster until WEB-005) + hero copy   location / coords ↘ ]
 
-[ DARK BEAM: section number + section title ---------------- short phrase ]
-[ CLEAN FULL-WIDTH SATELLITE IMAGE — no overlay copy          location / coords ↘ ]
+[ DARK TECHNICAL BEAM: 01 OBSERVE   statement (1–2 sentences)   MONO DESCRIPTOR ]
+[ CLEAN FULL-WIDTH VISUAL PANEL — no overlay copy               location / coords ↘ ]
 
-[ DARK BEAM: next section ]
-[ CLEAN FULL-WIDTH SATELLITE IMAGE                           location / coords ↘ ]
+[ 02 TERRAIN → 03 EVIDENCE → 04 STRUCTURE → 05 PRIORITY → 06 GEOTHERMAL, same rhythm ]
 
-[ repeat ]
-
+[ PILOT LEDGER: geothermal active; mineral / environmental expansion directions ]
+[ COMPANY + HOW WE WORK (trust list) ]
+[ CONTACT BEAM ]
 [ compact footer ]
 ```
 
-This alternating beam/image rhythm is the core design system. Images sit directly against the beams; there is no metadata band between them (changed in ORBWEB-001.1).
+This alternating beam/image rhythm is the core design system. Images sit directly against the beams; there is no metadata band between them (changed in ORBWEB-001.1). Since WEB-001 the sequence tells the evidence-to-intelligence story rather than listing solutions; see `docs/WEB_VNEXT_AUTHORITY.md`.
 
 ## Visual principles
 
@@ -34,17 +36,18 @@ Real high-resolution EO/satellite scenes should carry the visual character. Do n
 
 Only the hero is allowed substantial overlay copy. Subsequent solution images should remain visually clean.
 
-### 3. Separator beams carry language
+### 3. Technical beams carry language
 
-The horizontal beam between images is where the solution title and short editorial phrase live. It should span the entire viewport.
+The horizontal beam between images is where the story index, uppercase title, one- or two-sentence statement and a monospace descriptor live. It spans the entire viewport and stays dark.
 
 ### 4. On-image location labels are part of the brand language
 
-Every satellite scene carries its real-world location and coordinates **directly on the image, bottom-right**, as two lines of small uppercase tracked text:
+Every satellite scene carries its real-world location and coordinates **directly on the image, bottom-right**, as small uppercase tracked monospace text. Story panels that reuse gallery imagery add a third, dimmer line so the image is never mistaken for a scientific output:
 
 ```text
 CRATER LAKE, OREGON, USA
 42.9443° N, 122.1353° W
+NATURAL-COLOR COMPOSITE
 ```
 
 Rules (ORBWEB-001.1, canonical):
@@ -77,13 +80,12 @@ Avoid:
 
 ## Navigation
 
-Desktop (≥ 981 px): logo far left; the whole navigation group right-aligned, never centered. Order is fixed:
+Desktop (≥ 981 px): logo far left; the whole navigation group right-aligned, never centered. Order is fixed (WEB-001):
 
-`Home` → `Solutions ⌄` → `About` → `Partner With Us` → `|` → `EN | TR`
+`Platform` → `Solutions ⌄` → `Pilot` → `Company` → `Contact` → `|` → `EN | TR`
 
-- Home carries the active state as a 1 px cyan underline.
-- Partner With Us is a normal text item (the boxed CTA lives only in the hero).
-- Solutions is a compact disclosure dropdown with exactly Geothermal, Mining, Marine: dark surface matching the header, no icons, no descriptions, no mega menu. Hover, keyboard focus and click open it; Escape and clicking outside close it; arrow keys move through items.
+- Every item is a plain text item resolving to a real anchor (`#platform`, `#pilot`, `#company`, `#contact`). The boxed CTA lives only in the hero.
+- Solutions is a compact disclosure dropdown with exactly Geothermal Exploration, Mineral Exploration, Environmental & Land Intelligence (→ `#geothermal`, `#mineral`, `#environment`): dark surface matching the header, no icons, no descriptions, no mega menu. Hover, keyboard focus and click open it; Escape and clicking outside close it; arrow keys move through items.
 - The language switch is text only (`EN | TR`), active language in the cyan accent, inactive muted; no flags, no dropdown.
 
 Mobile (≤ 980 px): hamburger reveals a restrained stacked list in the same order; Solutions expands and collapses on tap (never hover); Escape and link selection close the menu; the language switch stays at the bottom with tap-sized targets.
@@ -106,7 +108,7 @@ Do not add a broad multi-color UI palette without approval.
 
 ## Typography
 
-Current system stack is intentional for dependency-free deployment. The intended tone is technical, editorial and premium rather than playful. Large hero text can be light/regular weight. Section beams use compact uppercase tracking.
+Current system stack is intentional for dependency-free deployment. The intended tone is technical, editorial and premium rather than playful. Large hero text can be light/regular weight. Section beams use compact uppercase tracking. A secondary system monospace stack (`--mono`) is used for coordinates, evidence labels, metadata, status tags and technical descriptors only.
 
 A webfont may be introduced later only if it improves the final identity and licensing/performance are handled deliberately.
 

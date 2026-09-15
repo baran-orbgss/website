@@ -64,6 +64,10 @@ No NASA-rendered pixels, NASA logos or identifiers are served. The NASA Earth Ob
 - Production source products: `LC08_L2SP_152029_20200307_02_T1` and `LC08_L2SP_152028_20200307_02_T1` (path 152 rows 029 + 028, same overpass, mosaicked)
 - Reference page: https://earthobservatory.nasa.gov/images/146552/a-delta-oasis-in-southeastern-kazakhstan
 
+## WEB-001 placement (2026-09-15)
+
+The four scenes are reused as temporary gallery material across the vNext story panels: Crater Lake (hero, 03 Evidence), Ili Delta (01 Observe, 04 Structure), Chuquicamata (02 Terrain, 05 Priority), Yellowstone (06 Geothermal). Each story panel is labelled on-image as `Natural-color composite` and marked `data-visual-status="temporary-gallery"`; none is presented as a DEM, evidence raster, structural map or priority output. Placement is recorded per scene under `web_vnext_placement` in `assets/imagery/sources.json`. WEB-002 replaces the story slots with product-proof visuals, which must be recorded here with full provenance before use. Rights, source products and the USGS acknowledgement are unchanged.
+
 ## Resolution note
 
 The composites are native 30 m Landsat surface reflectance. 15 m pan-sharpened Level-1 products for these acquisitions are only obtainable through USGS EarthExplorer / Machine-to-Machine access, which requires an account that was not authorized for this work. If sharper hero imagery is wanted later, that is the path; the provenance model above stays the same.
