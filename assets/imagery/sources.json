@@ -52,6 +52,15 @@
           "jpeg_quality": 82,
           "pipeline": "scripts/build_imagery.py"
         }
+      },
+      "web_vnext_placement": {
+        "task": "WEB-001",
+        "status": "temporary-gallery",
+        "slots": [
+          "hero",
+          "evidence"
+        ],
+        "note": "Atmospheric gallery use only; labelled on-image as a natural-color composite. WEB-002 replaces story slots with product-proof visuals."
       }
     },
     {
@@ -104,6 +113,14 @@
           "jpeg_quality": 82,
           "pipeline": "scripts/build_imagery.py"
         }
+      },
+      "web_vnext_placement": {
+        "task": "WEB-001",
+        "status": "temporary-gallery",
+        "slots": [
+          "geothermal"
+        ],
+        "note": "Atmospheric gallery use only; labelled on-image as a natural-color composite. WEB-002 replaces story slots with product-proof visuals."
       }
     },
     {
@@ -156,6 +173,15 @@
           "jpeg_quality": 82,
           "pipeline": "scripts/build_imagery.py"
         }
+      },
+      "web_vnext_placement": {
+        "task": "WEB-001",
+        "status": "temporary-gallery",
+        "slots": [
+          "terrain",
+          "priority"
+        ],
+        "note": "Atmospheric gallery use only; labelled on-image as a natural-color composite. WEB-002 replaces story slots with product-proof visuals."
       }
     },
     {
@@ -209,6 +235,15 @@
           "jpeg_quality": 82,
           "pipeline": "scripts/build_imagery.py"
         }
+      },
+      "web_vnext_placement": {
+        "task": "WEB-001",
+        "status": "temporary-gallery",
+        "slots": [
+          "observe",
+          "structure"
+        ],
+        "note": "Atmospheric gallery use only; labelled on-image as a natural-color composite. WEB-002 replaces story slots with product-proof visuals."
       }
     }
   ],
@@ -218,5 +253,9 @@
     "stac": "https://planetarycomputer.microsoft.com/api/stac/v1",
     "license": "USGS Landsat data are in the public domain; acknowledgement: 'Landsat data courtesy of the U.S. Geological Survey.'",
     "pipeline": "scripts/build_imagery.py"
+  },
+  "web_vnext": {
+    "task": "WEB-001",
+    "rule": "Story panels (data-visual-slot) reuse these scenes as temporary gallery material. No scene is presented as a DEM, evidence raster, structural map or priority output. Product-proof visuals arrive in WEB-002 and must be added here with full provenance before use."
   }
 }

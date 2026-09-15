@@ -29,8 +29,14 @@ REQUIRED_FILES = [
     "sitemap.xml",
 ]
 
-REQUIRED_SECTION_IDS = {"geothermal", "mineral", "environment"}
+# WEB-001 vNext structure: story anchors, the pilot ledger and the trust/contact zone.
+REQUIRED_SECTION_IDS = {
+    "platform", "terrain", "evidence", "structure", "priority", "geothermal",
+    "pilot", "solutions", "mineral", "environment", "company", "contact",
+}
 PROHIBITED_COPY = ["how it works"]
+# Temporary gallery panels must never be labelled as scientific outputs (WEB-001 acceptance 9).
+REQUIRED_TEMP_PANEL_STATUS = "temporary-gallery"
 
 
 class SiteParser(HTMLParser):
@@ -40,11 +46,14 @@ class SiteParser(HTMLParser):
         self.img_srcs: list[str] = []
         self.links: list[str] = []
         self.text: list[str] = []
+        self.visual_slots: list[tuple[str, str]] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         data = dict(attrs)
         if data.get("id"):
             self.ids.add(str(data["id"]))
+        if data.get("data-visual-slot"):
+            self.visual_slots.append((str(data["data-visual-slot"]), str(data.get("data-visual-status") or "")))
         if tag == "img" and data.get("src"):
             self.img_srcs.append(str(data["src"]))
         if tag == "a" and data.get("href"):
@@ -118,6 +127,16 @@ def main() -> int:
     for href in parser.links:
         if href.startswith("#") and len(href) > 1 and href[1:] not in parser.ids:
             fail(f"broken internal fragment link: {href}", errors)
+
+    # Every story panel is a declared visual slot; temporary panels carry the temporary status so
+    # WEB-002 can find them and so nobody silently promotes a gallery image to an evidence output.
+    story_slots = [slot for slot in parser.visual_slots if slot[0] != "hero"]
+    expected_slots = ["observe", "terrain", "evidence", "structure", "priority", "geothermal"]
+    if [slot for slot, _ in story_slots] != expected_slots:
+        fail(f"story visual slots out of order or missing: {[slot for slot, _ in story_slots]}", errors)
+    for slot, status in story_slots:
+        if status not in {REQUIRED_TEMP_PANEL_STATUS, "product-proof"}:
+            fail(f"visual slot {slot!r} has unknown data-visual-status {status!r}", errors)
 
     # Basic anti-regression guard against accidentally reintroducing common card-grid class names.
     suspicious = re.findall(r'class="[^"]*\b(?:card-grid|feature-grid|icon-grid)\b[^"]*"', html, flags=re.I)
